@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  ws-spark:
+    container_name: ws-spark
+    build: .
+    ports:
+    - 7077:707
+    - 8080:8080
+    command: start-spark master
+    networks:
+      - ws_backend
+
+networks:
+  ws_backend:
+    external:
+      name: ws_backend
